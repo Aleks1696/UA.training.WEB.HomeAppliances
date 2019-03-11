@@ -14,7 +14,6 @@ public class ApartmentServletTest {
         final ApartmentServlet servlet = new ApartmentServlet();
 
         final HttpServletRequest request = mock(HttpServletRequest.class);
-        final HttpServletResponse response = mock(HttpServletResponse.class);
         final RequestDispatcher dispatcher = mock(RequestDispatcher.class);
         when(request.getRequestDispatcher(jsp)).thenReturn(dispatcher);
     }

@@ -10,10 +10,10 @@ import static org.junit.Assert.*;
 public class DevicesTest {
 
     @Test
-    public void getAllDevicesPositive() {
+    public void getAllDevicesPositivePositive() {
         List<Device> allDevicesFromDB = Devices.getAllDevices();
         assertTrue(allDevicesFromDB.contains(Devices.getDevice(Devices.TV)));
-        assertTrue(allDevicesFromDB.contains(Devices.getDevice(Devices.REFRIGIRATOR)));
+        assertTrue(allDevicesFromDB.contains(Devices.getDevice(Devices.REFRIGERATOR)));
         assertTrue(allDevicesFromDB.contains(Devices.getDevice(Devices.SMARTPHONE)));
         assertTrue(allDevicesFromDB.contains(Devices.getDevice(Devices.DIGITALWATCH)));
     }
