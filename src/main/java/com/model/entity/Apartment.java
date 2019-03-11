@@ -1,22 +1,23 @@
 package com.model.entity;
 
 import com.model.dataBase.Devices;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Apartment {
     private List<Device> allDevicesList;
-    private DashBoard dashBoard;
+    private List<Device> pluggedDevices;
 
     public Apartment() {
         allDevicesList = Devices.getAllDevices();
-        dashBoard = new DashBoard();
+        pluggedDevices = new ArrayList<>();
     }
 
     public List<Device> getAllDevicesList() {
         return allDevicesList;
     }
 
-    public DashBoard getDashBoard() {
-        return dashBoard;
+    public List<Device> getPluggedDevices() {
+        return pluggedDevices;
     }
 }
