@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.model.entity.Device" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -18,7 +19,6 @@
                 deviceList = (List<Device>) request.getSession().getAttribute("devices");
             }
         %>
-
         <fieldset>
             <legend><fmt:message key="apartment.jsp.devices.legend"/> </legend>
 
@@ -42,18 +42,18 @@
                 <input type="submit" value="<fmt:message key="apartment.jsp.sort.button"/>"/>
             </form>
             <form action="findDevice">
+                <input type="number" name="minPowerUsage" required="required"/>
+                <input type="number" name="maxPowerUsage" required="required"/>
                 <input type="submit" value="<fmt:message key="apartment.jsp.findDevice.button"/>"/>
             </form>
         </fieldset>
 
         <fieldset>
             <legend><fmt:message key="apartment.jsp.dashboard.label"/></legend>
-            <%  if (request.getAttribute("response") != null) {
-                List<String> devicesReaction = (List<String>) request.getAttribute("response");
-                for (String str : devicesReaction) { %>
-                    <p> <%= str%></p>
-                <% }
-            } %>
+            <c:set var="response" scope="request" value="${requestScope.response}"/>
+            <c:if test="${response != null}">
+                <c:out value="${response}"/>
+            </c:if>
         </fieldset>
     </body>
 </html>
