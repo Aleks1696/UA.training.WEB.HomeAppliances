@@ -2,33 +2,44 @@ package com.model.entity;
 
 import com.model.types.Brand;
 
-public abstract class Device implements DeviceUsage {
+public abstract class Device {
     private Brand brand;
-    private Integer powerUsagePerHour;
+    private int powerUsagePerHour;
+    private boolean isPluggedIn;
 
     public Device() {
     }
 
-    public Device(Brand brand, Integer powerUsagePerHour) {
+    public Device(Brand brand, int powerUsagePerHour) {
         this.brand = brand;
         this.powerUsagePerHour = powerUsagePerHour;
-    }
-
-    public Integer getDevicePowerUsage() {
-        return powerUsagePerHour;
-    }
-
-    public String plugIn(Socket socket) {
-        socket.getDeviceList().add(this);
-        return getDeviceReactionOnPlugIn();
-    }
-
-    public String plugOff(Socket socket) {
-        socket.getDeviceList().remove(this);
-        return getDeviceReactionOnPlugOff();
     }
 
     public abstract String getDeviceReactionOnPlugIn();
 
     public abstract String getDeviceReactionOnPlugOff();
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public int getPowerUsagePerHour() {
+        return powerUsagePerHour;
+    }
+
+    public void setPowerUsagePerHour(int powerUsagePerHour) {
+        this.powerUsagePerHour = powerUsagePerHour;
+    }
+
+    public boolean isPluggedIn() {
+        return isPluggedIn;
+    }
+
+    public void setPluggedIn(boolean pluggedIn) {
+        isPluggedIn = pluggedIn;
+    }
 }
